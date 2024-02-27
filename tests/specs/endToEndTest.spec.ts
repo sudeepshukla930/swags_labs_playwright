@@ -4,6 +4,8 @@ import { loginPage } from '../pageObjects/loginLocator';
 import { cartPage } from '../pageObjects/cartLocator';
 import { checkoutStepOnePage } from '../pageObjects/checkoutStepOneLocators';
 import { checkoutSteptwoPage } from '../pageObjects/checkoutStepTwoLocators';
+import {userExcel} from '../data/data.json';
+import { ExcelReader } from '../utils/excelRead';
 
 
 
@@ -15,6 +17,7 @@ test.describe('End to End test ', () => {
     let cart: cartPage
     let checkoutOne: checkoutStepOnePage
     let chheckoutTwo: checkoutSteptwoPage
+    let excelData : any[][] = [];
     let count : number;
 
 
@@ -26,6 +29,9 @@ test.describe('End to End test ', () => {
         cart = new cartPage(page);
         checkoutOne = new checkoutStepOnePage(page);
         chheckoutTwo = new checkoutSteptwoPage(page);
+
+        excelData = await ExcelReader.readExcel(userExcel.filePath , userExcel.sheetName);
+
 
 
         await login.goToLoginPage();
@@ -66,7 +72,11 @@ test.describe('End to End test ', () => {
     
         await cart.clickCheckoutButton();
     
-        await checkoutOne.fillCheckoutDetails('ss','ss','222222');
+        await checkoutOne.fillCheckoutDetails(
+            excelData[1][0] ,
+            excelData[1][1] ,
+            excelData[1][2].toString() 
+            );
     
         await checkoutOne.clickContinueButton();
     
@@ -107,7 +117,11 @@ test.describe('End to End test ', () => {
 
         await cart.clickCheckoutButton();
     
-        await checkoutOne.fillCheckoutDetails('ss','ss','222222');
+        await checkoutOne.fillCheckoutDetails(
+            excelData[1][0] ,
+            excelData[1][1] ,
+            excelData[1][2].toString() 
+            );
     
         await checkoutOne.clickContinueButton();
     
@@ -159,7 +173,11 @@ test.describe('End to End test ', () => {
     
             await cart.clickCheckoutButton();
         
-            await checkoutOne.fillCheckoutDetails('ss','ss','222222');
+            await checkoutOne.fillCheckoutDetails(
+                excelData[1][0] ,
+                excelData[1][1] ,
+                excelData[1][2].toString() 
+                );
         
             await checkoutOne.clickContinueButton();
         

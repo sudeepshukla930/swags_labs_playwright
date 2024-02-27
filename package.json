@@ -7,31 +7,33 @@
     "loginThroughChrome": "npx playwright test loginPage.spec.ts --project chromium --headed",
     "productThroughChrome": "npx playwright test productPage.spec.ts --project chromium --headed",
     "cartThroughChrome": "npx playwright test cartPage.spec.ts --project chromium --headed",
-    "endtoendThroughChrome" : "npx playwright test endToEndTest.spec.ts --project chromium --headed",
+    "endtoendThroughChrome": "npx playwright test endToEndTest.spec.ts --project chromium --headed",
     "fullTest": "npx playwright test",
-    "test": "npx nyc --reporter=lcov --reporter=text playwright test",
-    "coverage": "npx nyc report --reporter=text-summary"
+    "test": "npx nyc --reporter=lcov --reporter=text node --loader ts-node/esm ./node_modules/.bin/playwright test tests/specs/**/*.spec.ts",
+    "coverage": "npx nyc report --reporter=text-summary",
+    "allure-Report": "npx allure serve allure-results"
   },
-
   "nyc": {
-    
+    "extension": [
+      ".spec.ts"
+    ],
     "report-dir": "./coverage",
     "all-at-once": false,
-    "reporters": ["text", "html"],
-    "reporter-options": {
-      "html": {
-        "dest": "./coverage/"
-      }
-    }
-  
+    "reporters": [
+      "text",
+      "html"
+    ],
+    "all": true
   },
-
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@playwright/test": "^1.41.2",
     "@types/node": "^20.11.20",
+    "allure-commandline": "^2.27.0",
+    "allure-playwright": "^2.13.0",
+    "exceljs": "^4.4.0",
     "nyc": "^15.1.0"
   }
 }
