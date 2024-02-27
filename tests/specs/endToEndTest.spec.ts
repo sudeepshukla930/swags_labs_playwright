@@ -6,6 +6,7 @@ import { checkoutStepOnePage } from '../pageObjects/checkoutStepOneLocators';
 import { checkoutSteptwoPage } from '../pageObjects/checkoutStepTwoLocators';
 import {userExcel} from '../data/data.json';
 import { ExcelReader } from '../utils/excelRead';
+import { CommonMethods } from '../utils/commonTestMethods';
 
 
 
@@ -54,37 +55,12 @@ test.describe('End to End test ', () => {
     */ 
 
     test(`Scenario-1 : Standard user logined and perform checkout `, async ({page}) => {
-        // Test code goes here
-        count = 0;
-        await products.addItemToCart('Sauce Labs Onesie','$7.99');
-        count++ ;
-    
-        await products.addItemToCart('Sauce Labs Fleece Jacket','$49.99');
-        count++ ; 
-    
-        await products.addItemToCart('Sauce Labs Backpack', '$29.99');
-        count++ ; 
-    
-        await products.validateAddToCartCount(count.toString());
-    
-        await cart.clickCartIcon();
-    
-    
-        await cart.clickCheckoutButton();
-    
-        await checkoutOne.fillCheckoutDetails(
-            excelData[1][0] ,
-            excelData[1][1] ,
-            excelData[1][2].toString() 
-            );
-    
-        await checkoutOne.clickContinueButton();
-    
-        await chheckoutTwo.clickFinisheButton();
-    
-    
-
-    
+        await CommonMethods.addItemsToCart(page, products, [
+            { name: 'Sauce Labs Onesie', price: '$7.99' },
+            { name: 'Sauce Labs Fleece Jacket', price: '$49.99' },
+            { name: 'Sauce Labs Backpack', price: '$29.99' }
+        ]);
+        await CommonMethods.proceedToCheckoutAndFinish(page, cart, checkoutOne, chheckoutTwo, excelData);
       });
 
 /*
@@ -99,36 +75,15 @@ test.describe('End to End test ', () => {
 
       test(`Scenario-2 : Removed an item then proceed to checkout `, async ({page}) => {
         // Test code goes here
-        count = 0;
-        await products.addItemToCart('Sauce Labs Onesie','$7.99');
-        count++ ;
-    
-        await products.addItemToCart('Sauce Labs Fleece Jacket','$49.99');
-        count++ ; 
-    
-        await products.addItemToCart('Sauce Labs Backpack', '$29.99');
-        count++ ; 
-    
-        await products.validateAddToCartCount(count.toString());
-    
-        await cart.clickCartIcon();
-    
-        await cart.removeFromToCart('Sauce Labs Onesie','7.99');
-
-        await cart.clickCheckoutButton();
-    
-        await checkoutOne.fillCheckoutDetails(
-            excelData[1][0] ,
-            excelData[1][1] ,
-            excelData[1][2].toString() 
-            );
-    
-        await checkoutOne.clickContinueButton();
-    
-        await chheckoutTwo.clickFinisheButton();
+        await CommonMethods.addItemsToCart(page, products, [
+            { name: 'Sauce Labs Onesie', price: '$7.99' },
+            { name: 'Sauce Labs Fleece Jacket', price: '$49.99' },
+            { name: 'Sauce Labs Backpack', price: '$29.99' }
+        ]);
+        await cart.removeFromToCart('Sauce Labs Onesie', '7.99');
+        await CommonMethods.proceedToCheckoutAndFinish(page, cart, checkoutOne, chheckoutTwo, excelData);
     
     
-
     
       });
     
@@ -151,40 +106,14 @@ test.describe('End to End test ', () => {
             // Test code goes here
 
             await products.clickMenuBarOpen();
-
             await products.clickYourMenuElement('all items');
-
-
-            count = 0;
-            await products.addItemToCart('Sauce Labs Onesie','$7.99');
-            count++ ;
-        
-            await products.addItemToCart('Sauce Labs Fleece Jacket','$49.99');
-            count++ ; 
-        
-            await products.addItemToCart('Sauce Labs Backpack', '$29.99');
-            count++ ; 
-        
-            await products.validateAddToCartCount(count.toString());
-        
-            await cart.clickCartIcon();
-        
-            await cart.removeFromToCart('Sauce Labs Onesie','7.99');
-    
-            await cart.clickCheckoutButton();
-        
-            await checkoutOne.fillCheckoutDetails(
-                excelData[1][0] ,
-                excelData[1][1] ,
-                excelData[1][2].toString() 
-                );
-        
-            await checkoutOne.clickContinueButton();
-        
-            await chheckoutTwo.clickFinisheButton();
-        
-        
-    
+            await CommonMethods.addItemsToCart(page, products, [
+                { name: 'Sauce Labs Onesie', price: '$7.99' },
+                { name: 'Sauce Labs Fleece Jacket', price: '$49.99' },
+                { name: 'Sauce Labs Backpack', price: '$29.99' }
+            ]);
+            await cart.removeFromToCart('Sauce Labs Onesie', '7.99');
+            await CommonMethods.proceedToCheckoutAndFinish(page, cart, checkoutOne, chheckoutTwo, excelData);
         
           });
 
@@ -211,7 +140,6 @@ test.describe('End to End test ', () => {
 
         await cart.clickContinueShopButton();
 
-    
     
 
     

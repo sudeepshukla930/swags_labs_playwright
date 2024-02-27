@@ -66,7 +66,7 @@ export class productsPage{
         await expect(this.page.url()).toContain(name);
     }
 
-    public async addItemToCart(item:'sauce-labs-bike-light' | 'Sauce Labs Backpack' | 'sauce-labs-bolt-t-shirt' | 'Sauce Labs Fleece Jacket' | 'Sauce Labs Onesie' ,  price:string){
+    public async addItemToCart(item: string ,  price:string){
     
             await this.setAddToCartButton(price);
 
