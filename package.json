@@ -11,7 +11,8 @@
     "fullTest": "npx playwright test",
     "test": "npx nyc --reporter=lcov --reporter=text node --loader ts-node/esm ./node_modules/.bin/playwright test tests/specs/**/*.spec.ts",
     "coverage": "npx nyc report --reporter=text-summary",
-    "allure-Report": "npx allure serve allure-results"
+    "allure": "npx allure serve allure-results",
+    "htmlReport" : "npx playwright show-report"
   },
   "nyc": {
     "extension": [
@@ -33,7 +34,7 @@
     "@types/node": "^20.11.20",
     "allure-commandline": "^2.27.0",
     "allure-playwright": "^2.13.0",
-    "exceljs": "^4.4.0",
+     "exceljs": "^4.4.0",
     "nyc": "^15.1.0"
   }
 }

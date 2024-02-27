@@ -80,6 +80,7 @@ test.describe('End to End test ', () => {
             { name: 'Sauce Labs Fleece Jacket', price: '$49.99' },
             { name: 'Sauce Labs Backpack', price: '$29.99' }
         ]);
+        await cart.clickCartIcon();
         await cart.removeFromToCart('Sauce Labs Onesie', '7.99');
         await CommonMethods.proceedToCheckoutAndFinish(page, cart, checkoutOne, chheckoutTwo, excelData);
     
@@ -112,6 +113,7 @@ test.describe('End to End test ', () => {
                 { name: 'Sauce Labs Fleece Jacket', price: '$49.99' },
                 { name: 'Sauce Labs Backpack', price: '$29.99' }
             ]);
+            await cart.clickCartIcon();
             await cart.removeFromToCart('Sauce Labs Onesie', '7.99');
             await CommonMethods.proceedToCheckoutAndFinish(page, cart, checkoutOne, chheckoutTwo, excelData);
         
