@@ -1,0 +1,10 @@
+2024-02-28 12:02:48:248 info: Login started..
+{
+  url: 'https://www.saucedemo.com/v1/',
+  username: 'standard_user',
+  password: 'secret_sauce'
+}
+2024-02-28 12:02:50:250 info: Scenario 1 started 
+2024-02-28 12:02:50:250 info: add items to cart 
+2024-02-28 12:02:50:250 info: checkout process 
+2024-02-28 12:02:51:251 info: Scenario 1 finished

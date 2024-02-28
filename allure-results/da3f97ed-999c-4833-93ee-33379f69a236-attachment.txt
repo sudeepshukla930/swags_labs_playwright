@@ -1,0 +1,6 @@
+2024-02-28 12:02:48:248 info: Login started..
+{
+  url: 'https://www.saucedemo.com/v1/',
+  username: 'standard_user',
+  password: 'secret_sauce'
+}

@@ -7,6 +7,7 @@ import { checkoutSteptwoPage } from '../pageObjects/checkoutStepTwoLocators';
 import {userExcel} from '../data/data.json';
 import { ExcelReader } from '../utils/excelRead';
 import { CommonMethods } from '../utils/commonTestMethods';
+import { Logger } from '../utils/logger';
 
 
 
@@ -34,7 +35,8 @@ test.describe('End to End test ', () => {
         excelData = await ExcelReader.readExcel(userExcel.filePath , userExcel.sheetName);
 
 
-
+        Logger.info("Login started..")
+        
         await login.goToLoginPage();
 
         await login.enterCredential();
@@ -42,6 +44,9 @@ test.describe('End to End test ', () => {
         await login.loginButtonClicked();
 
         await login.assertLogin();
+
+        Logger.success("Login done")
+    
 
     });
 
@@ -55,12 +60,24 @@ test.describe('End to End test ', () => {
     */ 
 
     test(`Scenario-1 : Standard user logined and perform checkout `, async ({page}) => {
+
+        Logger.info("Scenario 1 started ")
+        Logger.info("add items to cart ")
+
         await CommonMethods.addItemsToCart(page, products, [
             { name: 'Sauce Labs Onesie', price: '$7.99' },
             { name: 'Sauce Labs Fleece Jacket', price: '$49.99' },
             { name: 'Sauce Labs Backpack', price: '$29.99' }
         ]);
+        
+        Logger.success("add items to cart  done ")
+
+        Logger.info("checkout process ")
         await CommonMethods.proceedToCheckoutAndFinish(page, cart, checkoutOne, chheckoutTwo, excelData);
+
+        Logger.success("checkout done ")
+        Logger.info("Scenario 1 finished")
+
       });
 
 /*

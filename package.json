@@ -8,8 +8,8 @@
     "productThroughChrome": "npx playwright test productPage.spec.ts --project chromium --headed",
     "cartThroughChrome": "npx playwright test cartPage.spec.ts --project chromium --headed",
     "endtoendThroughChrome": "npx playwright test endToEndTest.spec.ts --project chromium --headed",
-    "fullTest": "npx playwright test",
-    "test": "npx nyc --reporter=lcov --reporter=text-lcov playwright test",
+    "test": "npx playwright test",
+    "test:nyc": "npx nyc --reporter=lcov --reporter=text-lcov playwright test",
     "coverage": "npx nyc report --reporter=text-summary",
     "allure": "npx allure serve allure-results",
     "htmlReport": "npx playwright show-report"
@@ -43,6 +43,7 @@
     "allure-playwright": "^2.13.0",
     "babel-plugin-istanbul": "^6.1.1",
     "exceljs": "^4.4.0",
-    "nyc": "^15.1.0"
+    "nyc": "^15.1.0",
+    "winston": "^3.11.0"
   }
 }
