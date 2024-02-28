@@ -96,12 +96,6 @@ npm run loginThroughChrome
 
 ```
 
-- **Login through Chrome:** 
-
-```
-npm run loginThroughChrome
-
-```
 - **Product page through Chrome:** 
 
 ```
