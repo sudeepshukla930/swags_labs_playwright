@@ -48,23 +48,22 @@ This test automation framework is developed using Playwright to automate testing
 
 ****
 ### 🧰 Utilities
-- **commonTestMethods.ts**: Defines a static variable for storing the username globally, ensuring its accessibility across different parts of the framework.
-- **excelRead.ts**: Fetches the current page's username and stores it into the Global class's username variable, facilitating dynamic data handling and reuse.
+- **commonTestMethods.ts**: This file contains common utility functions that are reused across multiple test scripts.
+
+- **excelRead.ts**: This file contains utility functions for reading data from Excel files. It provides functions to parse Excel files and extract data for use in test scripts, facilitating data-driven testing.
 ***
 
 ### 🔨 Tests
-- **loginPageTest.spec.ts**: Contains test cases related to the login page functionality, ensuring successful login with valid credentials and handling login failures.
-- **dashboardPageTest.spec.ts**: Tests for the dashboard page interactions, verifying the functionality of dashboard links and navigation.
-- **timesheetPageTest.spec.ts**: Tests for the timesheet functionality, including dynamic navigation and interactions with timesheet entries.
-- **leavePageTest.spec.ts**: Test cases for leave management functionality, covering leave list, leave assignment, and entitlement adding functionalities.
+- **loginPage.spec.ts**: Contains test cases related to the login page functionality, ensuring successful login with valid credentials and handling login failures.
+
+- **productsPageTest.spec.ts**: his file contains test scripts related to the product page functionality of the SauceDemo website. It includes test cases to verify product listings, sorting, filtering, adding products to the cart, and any related scenarios.
+
+- **cartPage.spec.ts**: This file contains test scripts related to the cart functionality of the SauceDemo website. It includes test cases to verify adding and removing items from the cart, updating quantities, checkout process, and any related scenarios.
+
+- **endToEndTest.spec.ts**: This file contains end-to-end test scenarios that cover multiple functionalities of the SauceDemo website. It includes test cases that simulate user interactions across different pages, such as login, product selection, cart management, and checkout.
 ***
 
-### 🎬 Project Flow
-1. **Login**: Tests begin by logging into the OrangeHRM site using credentials loaded from a JSON file. This ensures that the test environment is properly set up before executing further tests.
-2. **Dashboard Navigation**: After successful login, the dashboard page is visited, and its links are tested to ensure proper functionality and navigation.
-3. **Timesheet Interaction**: Tests are conducted to dynamically navigate to the timesheet section and interact with it, verifying the addition and viewing of timesheet entries.
-4. **Leave Management**: Test cases are executed for leave management functionality, including leave list verification, leave assignment, and adding entitlements.
-***
+
 
 ## 💻 Technologies Used
 - **🎭 Playwright**: Automation library for web applications. 
@@ -74,27 +73,91 @@ This test automation framework is developed using Playwright to automate testing
 
 ***
 
-### ⏩ Execution
-To execute the tests:
-1. Open a terminal or command prompt.
-2. Navigate to the root directory of the project.
-3. Run the following command:
-   ```
-    npx playwright test
-   ```
-   This command triggers the execution of test scripts using Playwright.
+## ✔ Installation
+
+```bash
+   git clone https://github.com/sudeepshukla930/swags_labs_playwright/
+```
+
+install dependencies
+
+```bash
+   npm install
+```
+
+## 🚀 Usage
+
+###  Running Tests
+
+- **Login through Chrome:** 
+
+```
+npm run loginThroughChrome
+
+```
+
+- **Login through Chrome:** 
+
+```
+npm run loginThroughChrome
+
+```
+- **Product page through Chrome:** 
+
+```
+npm run productThroughChrome
+
+```
+- **Cart page through Chrome:** 
+
+```
+npm run cartThroughChrome
+
+```
+- **Run all tests** 
+
+```
+npm run test
+
+```
+
+
+## 📈 Reports
+
+- **HTML Report** 
+
+```
+npm run htmlReport
+
+```
+
+- **Allure Report** 
+
+```
+npm run allure
+
+```
+
+- **nyc generate** 
+
+```
+npm run test:coverage
+
+```
 
 ***
-### 🌟 Reports
-- **HTML Reports**: Upon test execution, HTML reports are generated in the `test-results` directory. These reports provide a detailed summary of test outcomes, including pass/fail status and any associated errors.
-- **Allure Reports**: Allure reports can be generated and viewed using Allure Command Line. Follow these steps:
-  1. Ensure that you have Allure Command Line installed on your system.
-  2. Navigate to the `test-results` directory in your terminal.
-  3. Run the command:
-     ```
-     allure serve
-     ```
-     This command starts a local server and opens the Allure report in your default web browser.
+
+## 📌 Keypoints:
+
+- Tests are written using Playwright and TypeScript, providing a robust and maintainable test suite.
+
+- Data-driven testing is implemented using JSON and Excel data files, allowing for flexibility and scalability in test data management.
+
+- Page Object Model (POM) is followed for better code organization and maintainability, enhancing test readability and reusability.
+
+- Detailed test reports are generated using Allure, providing comprehensive insights into test execution.
+
+- Code coverage reports are generated using NYC and Istanbul, ensuring code quality and test coverage.
 
 *******************************
 ********************
