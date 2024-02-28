@@ -38,7 +38,7 @@ This test automation framework is developed using Playwright to automate testing
 
 ***
 ### 📜 Pages
-- **loginLocator.ts**: This page object handles the login functionality of the OrangeHRM site. It encapsulates locators, data loading from JSON files, login actions, and assertions for login success or failure.
+- **loginLocator.ts**: This page object handles the login functionality of the site. It encapsulates locators, data loading from JSON files, login actions, and assertions for login success or failure.
 - **productsLocator.ts**: This file defines the Page Object class for the product page of the SauceDemo website. It encapsulates methods and locators related to product listing, filtering, sorting, and adding products to the cart.
 - **cartLocator.ts**: This file defines the Page Object class for the cart page of the SauceDemo website. It encapsulates methods and locators related to managing items in the cart, such as adding, removing, updating quantities, and proceeding to checkout.
 
